@@ -40,16 +40,12 @@ public class movement : MonoBehaviour
         {
             mx = 0;
         }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            my = -yspeed*2;
-        } else if (Input.GetKeyUp(KeyCode.S)) 
-        {
-            my = 0;
-        }
+        
 
         rb.velocity = new Vector2(mx, rb.velocity.y);
-        rb.AddForce (new Vector2(0, my));
+        rb.velocity += Vector2.up * my;
+
+        //rb.AddForce (new Vector2(0, my));
     }
     void OnCollisionEnter2D(Collision2D c)
     {
